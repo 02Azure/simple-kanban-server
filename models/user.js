@@ -49,6 +49,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         notEmpty: {
           msg: "Username can't be empty"
+        },
+        isAlphanumeric: {
+          msg: "Please fill username with alphanumeric characters only"
         }
       } 
     },

@@ -15,5 +15,4 @@ router.patch("/:id", TaskController.switchCategory)
 
 router.delete("/:id", TaskController.delete)
 
-
 module.exports = router

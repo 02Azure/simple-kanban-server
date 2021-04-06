@@ -60,8 +60,9 @@ class TaskController {
 	}
 
 	static async switchCategory(req, res, next) {
+    let newCategory = req.body.category
+
     try{
-      let newCategory = req.body.category
       let updatedTask = await Task.update({category: newCategory}, {
         where: {
           id: +req.params.id
@@ -70,7 +71,7 @@ class TaskController {
       }) 
 
       if(!updatedTask[0]) throw {name:"TaskNotFound"}
-      res.status(200).json(...updateddTask[1])
+      res.status(200).json(...updatedTask[1])
     }
 		
     catch(err) {

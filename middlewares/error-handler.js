@@ -1,7 +1,6 @@
 function errorHandler(err, req, res, next) {
   let code = 500
-  let msgs
-	console.log(err.name, "<<<<<<<")
+  let msgs = "Internal Server Error"
   
   if(err.name === "SequelizeValidationError") {
     code = 400
@@ -26,11 +25,10 @@ function errorHandler(err, req, res, next) {
   } else if(err.name === "Unauthorized") {
     code = 401
     msgs = "You are not authorized for this action"
-    
   } 
 
-	console.log(err)
-  res.status(code).json({error: msgs || "Internal Server Error"})
+	// console.log(err)
+  res.status(code).json({error: msgs})
 }
 
 module.exports = errorHandler

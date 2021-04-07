@@ -7,6 +7,8 @@ router.get("/", TaskController.showAll)
 
 router.post("/", TaskController.add)
 
+router.get("/:id", TaskController.showOne) //semua user tetap bisa melihat task milik siapapun, seperti halnya showAll menunjukkan semua task dari semua user
+
 router.use("/:id", isAuthorized)
 
 router.put("/:id", TaskController.edit)

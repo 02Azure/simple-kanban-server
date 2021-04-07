@@ -34,6 +34,20 @@ class TaskController {
     }		
 	}
 	
+  static async showOne(req, res, next) {
+    try {
+      let foundTask = await Task.findByPk(+req.params.id)
+
+      if(!foundTask) throw {name: "TaskNotFound"}
+
+      res.status(200).json(foundTask)
+    }
+
+    catch(err) {
+      next(err)
+    }
+  }
+
 	static async edit(req, res, next) {
 		let {title, due} = req.body
 
@@ -42,7 +56,7 @@ class TaskController {
 			due
 		}
 		
-    try{
+    try {
       let updatedTask = await Task.update(input, {
         where: {
           id: +req.params.id
@@ -50,7 +64,7 @@ class TaskController {
         returning: true
       }) 
 
-      if(!updatedTask[0]) throw {name:"TaskNotFound"}
+      if(!updatedTask[0]) throw {name: "TaskNotFound"}
       res.status(200).json(...updatedTask[1])
     }
 		
@@ -70,7 +84,7 @@ class TaskController {
         returning: true
       }) 
 
-      if(!updatedTask[0]) throw {name:"TaskNotFound"}
+      if(!updatedTask[0]) throw {name: "TaskNotFound"}
       res.status(200).json(...updatedTask[1])
     }
 		

@@ -62,7 +62,6 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   User.beforeCreate((user, option) => {
-    console.log(user)
     user.privilege = "normal-user"
     user.password = hashPassword(user.password)
   })

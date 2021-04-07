@@ -66,7 +66,7 @@ class IndexController {
           password: "googleUser" + Math.random() * 54321 
         }
 
-        return User.create(input, {skip: ["username"]})
+        return User.create(input, {skip: ["username"]}) //untuk memperbolehkan id ada alphanumeric ( karena username = email jika pake googlelogin)
       }
     })
 
@@ -86,7 +86,6 @@ class IndexController {
 			username: req.body.username,
 			password: req.body.password,
 			email: req.body.email,
-      status: "iseng"
 		}
 		
 		try{

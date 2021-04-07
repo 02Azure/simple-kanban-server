@@ -92,7 +92,7 @@ server API for  site to implement agile and DevOps software development.
 **Response (200)**
 ``` JSON
 {
-  "accesstoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE3MTgyNjI4fQ.DvuE-I-jCpYGO2uNM5_ZRxfI4DUBaOQqEIeK8Rr_hN8",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE3MTgyNjI4fQ.DvuE-I-jCpYGO2uNM5_ZRxfI4DUBaOQqEIeK8Rr_hN8",
   "username": "<your email OR your current username that was registered before by using that gmail>"
 }
 ```
@@ -100,6 +100,58 @@ server API for  site to implement agile and DevOps software development.
 </details>
 
 ---
+<details>
+<summary>3. GET /tasks</summary>
+
+&nbsp;
+
+> View All Tasks 
+
+&nbsp;
+
+**Request Header**
+``` JSON
+{
+  "access_token": "<your access token>"
+}
+```
+
+**Response (200)**
+``` JSON
+[
+    {
+        "id": 1,
+        "title": "Kanban portfolio!",
+        "category": "doing",
+        "due": "2021-04-09",
+        "UserId": 2,
+        "createdAt": "2021-04-06T08:37:40.784Z",
+        "updatedAt": "2021-04-06T08:37:40.784Z"
+    },
+    {
+        "id": 2,
+        "title": "grinding gbf!?",
+        "category": "backlog",
+        "due": "2021-04-30",
+        "UserId": 3,
+        "createdAt": "2021-04-06T08:37:40.784Z",
+        "updatedAt": "2021-04-06T08:37:40.784Z"
+    },
+    {
+        "id": 3,
+        "title": "Todo portfolio!",
+        "category": "done",
+        "due": "2021-04-03",
+        "UserId": 2,
+        "createdAt": "2021-04-06T08:37:40.784Z",
+        "updatedAt": "2021-04-06T08:37:40.784Z"
+    }
+]
+```
+</details>
+
+---
+
 <details>
 <summary>4. GET /tasks</summary>
 
@@ -112,7 +164,7 @@ server API for  site to implement agile and DevOps software development.
 **Request Header**
 ``` JSON
 {
-  "accesstoken": "<your access token>"
+  "access_token": "<your access token>"
 }
 ```
 
@@ -164,17 +216,17 @@ server API for  site to implement agile and DevOps software development.
 **Request Header**
 ``` JSON
 {
-  "accesstoken": "<your access token>"
+  "access_token": "<your access token>"
 }
 ```
-**Request Body**
-``` JS
+
+**Request Parameters**
+``` JSON
 {
-  title: "iseng buat coba",
-  category: "backlog",
-  due: "2021-05-05"
+  "id": "<Task id that you want to get>"
 }
 ```
+
 **Response (201)**
 ``` JSON
 {
@@ -187,7 +239,7 @@ server API for  site to implement agile and DevOps software development.
     "createdAt": "2021-06-06T09:54:55.311Z"
 }
 ```
-**Response (400) (empty title and invalid due date)**
+**Response (404) (empty title and invalid due date)**
 ``` JSON
 {
     "error": [
@@ -199,9 +251,48 @@ server API for  site to implement agile and DevOps software development.
 </details>
 
 ---
+<details>
+<summary>6. GET /tasks/:id</summary>
+
+&nbsp;
+
+> View one task with matched Id
+
+&nbsp;
+
+**Request Header**
+``` JSON
+{
+  "access_token": "<your access token>"
+}
+```
+
+**Response (200)**
+``` JSON
+  {
+    "id": 1,
+    "title": "Kanban portfolio!",
+    "category": "doing",
+    "due": "2021-04-09",
+    "UserId": 2,
+    "createdAt": "2021-04-06T08:37:40.784Z",
+    "updatedAt": "2021-04-06T08:37:40.784Z"
+  }
+```
+
+**Response (404) (id isn't matched with any task)**
+``` JSON
+{
+    "error": "Task with this id is not found"
+}
+```
+
+</details>
+
+---
 
 <details>
-<summary>6. PUT /tasks/:id</summary>
+<summary>7. PUT /tasks/:id</summary>
 
 &nbsp;
 
@@ -212,7 +303,7 @@ server API for  site to implement agile and DevOps software development.
 **Request Header**
 ``` JSON
 {
-  "accesstoken": "<your access token>"
+  "access_token": "<your access token>"
 }
 ```
 **Request Parameters**
@@ -260,7 +351,7 @@ server API for  site to implement agile and DevOps software development.
 ---
 
 <details>
-<summary>7. PATCH /tasks/:id</summary>
+<summary>8. PATCH /tasks/:id</summary>
 
 &nbsp;
 
@@ -271,7 +362,7 @@ server API for  site to implement agile and DevOps software development.
 **Request Header**
 ``` JSON
 {
-  "accesstoken": "<your access token>"
+  "access_token": "<your access token>"
 }
 ```
 
@@ -313,7 +404,7 @@ server API for  site to implement agile and DevOps software development.
 ---
 
 <details>
-<summary>8. DELETE /tasks/:id</summary>
+<summary>9. DELETE /tasks/:id</summary>
 
 &nbsp;
 
@@ -324,7 +415,7 @@ server API for  site to implement agile and DevOps software development.
 **Request Header**
 ``` JSON
 {
-  "accesstoken": "<your access token>"
+  "access_token": "<your access token>"
 }
 ```
 

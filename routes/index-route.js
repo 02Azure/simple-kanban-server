@@ -5,6 +5,7 @@ const tasks = require("./tasks-route")
 const isAuthenticated = require("../middlewares/authentication")
 
 router.post("/login", IndexController.login)
+router.post("/glogin", IndexController.googleLogin)
 router.post("/register", IndexController.register)
 
 router.use(isAuthenticated)

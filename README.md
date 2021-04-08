@@ -74,7 +74,7 @@ server API for  site to implement agile and DevOps software development.
 ---
 
 <details>
-<summary>3. POST /google-login</summary>
+<summary>3. POST /glogin</summary>
 
 &nbsp;
 

@@ -1,4 +1,4 @@
-# kanban-server
+# kanban-server https://kanban-02azure-server.herokuapp.com
 server API for  site to implement agile and DevOps software development.
 
 * RESTful endpoint for kanban's CRUD operation

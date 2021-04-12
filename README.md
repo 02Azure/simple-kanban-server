@@ -100,57 +100,6 @@ server API for  site to implement agile and DevOps software development.
 </details>
 
 ---
-<details>
-<summary>3. GET /tasks</summary>
-
-&nbsp;
-
-> View All Tasks 
-
-&nbsp;
-
-**Request Header**
-``` JSON
-{
-  "access_token": "<your access token>"
-}
-```
-
-**Response (200)**
-``` JSON
-[
-    {
-        "id": 1,
-        "title": "Kanban portfolio!",
-        "category": "doing",
-        "due": "2021-04-09",
-        "UserId": 2,
-        "createdAt": "2021-04-06T08:37:40.784Z",
-        "updatedAt": "2021-04-06T08:37:40.784Z"
-    },
-    {
-        "id": 2,
-        "title": "grinding gbf!?",
-        "category": "backlog",
-        "due": "2021-04-30",
-        "UserId": 3,
-        "createdAt": "2021-04-06T08:37:40.784Z",
-        "updatedAt": "2021-04-06T08:37:40.784Z"
-    },
-    {
-        "id": 3,
-        "title": "Todo portfolio!",
-        "category": "done",
-        "due": "2021-04-03",
-        "UserId": 2,
-        "createdAt": "2021-04-06T08:37:40.784Z",
-        "updatedAt": "2021-04-06T08:37:40.784Z"
-    }
-]
-```
-</details>
-
----
 
 <details>
 <summary>4. GET /tasks</summary>
